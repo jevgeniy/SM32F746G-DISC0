@@ -35,7 +35,9 @@
 #include "stm32f7xx_hal.h"
 
 /* USER CODE BEGIN Includes */
-
+#include <stdlib.h>
+#include "stm32746g_discovery.h"
+#include "stm32746g_discovery_lcd.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -52,7 +54,11 @@ SDRAM_HandleTypeDef hsdram1;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
+#define LCD_FRAME_BUFFER	SDRAM_DEVICE_ADDR
 
+uint8_t lcd_status = LCD_OK;
+uint8_t Buf[20]={0};
+uint32_t i, col;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -104,13 +110,30 @@ int main(void)
   MX_USART1_UART_Init();
 
   /* USER CODE BEGIN 2 */
-
+	lcd_status = BSP_LCD_Init();
+	BSP_LCD_LayerDefaultInit(LTDC_ACTIVE_LAYER,LCD_FRAME_BUFFER);
+	BSP_LCD_SelectLayer(LTDC_ACTIVE_LAYER);
+	BSP_LCD_DisplayOn();
+	BSP_LCD_SetBackColor(LCD_COLOR_GREEN);
+	BSP_LCD_SetTextColor(LCD_COLOR_RED);
+	BSP_LCD_SetFont(&Font24);
+	sprintf((char*)Buf, "%s", "Hello, World!");
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+		BSP_LCD_Clear(LCD_COLOR_BLUE);
+		for(i = 0; i < 8; i++)
+		{
+			col = (uint32_t)(LCD_COLOR_TRANSPARENT |((rand()%256)<<16)|((rand()%256)<<8)|(rand()%256));
+			BSP_LCD_SetTextColor(col);
+			BSP_LCD_DisplayStringAt(10+i, 10+(i*30), Buf, LEFT_MODE);
+			HAL_Delay(300);
+		}
+		
+		HAL_Delay(2000);
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */

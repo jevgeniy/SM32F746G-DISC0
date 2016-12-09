@@ -1,5 +1,8 @@
 --cpu Cortex-M7.fp.sp
 "test_01\startup_stm32f746xx.o"
+"test_01\stm32746g_discovery.o"
+"test_01\stm32746g_discovery_lcd.o"
+"test_01\stm32746g_discovery_sdram.o"
 "test_01\system_stm32f7xx.o"
 "test_01\stm32f7xx_hal_gpio.o"
 "test_01\stm32f7xx_hal_tim_ex.o"

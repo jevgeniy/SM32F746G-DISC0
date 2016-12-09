@@ -34,3 +34,9 @@ test_01\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h
 test_01\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h
 test_01\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h
 test_01\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h
+test_01\main.o: D:\Programs\#Develop\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+test_01\main.o: ../Drivers/BSP/STM32746G-Discovery/stm32746g_discovery.h
+test_01\main.o: ../Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_lcd.h
+test_01\main.o: ../Drivers/BSP/STM32746G-Discovery/../Components/rk043fn48h/rk043fn48h.h
+test_01\main.o: ../Drivers/BSP/STM32746G-Discovery/stm32746g_discovery_sdram.h
+test_01\main.o: ../Drivers/BSP/STM32746G-Discovery/../../../Utilities/Fonts/fonts.h
